@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClubPulse — Plataforma Autónoma de Recuperação de Quotas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<nav class="site-nav">
+  <a class="logo" href="index.html">ClubPulse<span class="logo-dot"></span></a>
+  <ul class="nav-links">
+    <li><a href="produtos.html">Produtos</a></li>
+    <li><a href="#plataforma">Plataforma</a></li>
+    <li><a href="#casos">Casos de Uso</a></li>
+    <li><a href="demo.html">Demonstração</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-actions"><a class="btn btn-ghost" href="#contacto">Agendar Demonstração</a><a class="btn btn-amber" href="demo.html">Experimentar Demo</a></div>
+  <button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="produtos.html">Produtos</a><a href="#plataforma">Plataforma</a><a href="#casos">Casos de Uso</a><a href="demo.html">Demonstração</a><a href="#contacto">Contacto</a>
+</div>
+<div class="sticky-cta"><span>Sistema autónomo ativo</span><a class="btn btn-ghost-white" href="#contacto">Agendar</a><a class="btn btn-amber" href="demo.html">Abrir Plataforma →</a></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge reveal">Gestão de clubes amadores, reinventada</div>
+      <h1 class="reveal">O seu clube merece uma <span>ferramenta</span> à sua altura.</h1>
+      <p class="hero-sub reveal">ClubPulse substitui o Excel, o WhatsApp e os cadernos físicos por uma plataforma integrada que cobra quotas automaticamente, centraliza o histórico dos atletas e devolve tempo útil aos dirigentes — para que se foquem no desporto, não na burocracia.</p>
+      <div class="hero-actions reveal"><a class="btn btn-amber btn-lg" href="demo.html">Experimentar Demo</a><a class="btn btn-ghost-white btn-lg" href="#contacto">Agendar Demonstração</a></div>
+      <div class="hero-trust reveal"><span class="trust-pill"><span class="live-dot"></span>Plataforma ativa</span><span class="trust-pill">Quotas recuperadas automaticamente</span><span class="trust-pill">Zero burocracia manual</span></div>
+    </div>
+    <div class="hero-stack reveal">
+      <div class="dashboard-card">
+        <div class="dash-top"><div class="dash-brand">ClubPulse Operações</div><div class="dash-live"><span class="live-dot"></span>ATIVO</div></div>
+        <div class="dash-kpis"><div class="dash-kpi"><strong>18</strong><span>pagamentos em dia</span></div><div class="dash-kpi"><strong>3</strong><span>sócios contactados</span></div><div class="dash-kpi"><strong>€840</strong><span>recuperados</span></div></div>
+        <div class="dash-row"><div class="avatar">MS</div><div><div class="row-name">Maria Santos</div><div class="row-meta">Lembrete WhatsApp enviado há 4 min</div></div><span class="badge amber">PROCESSAMENTO</span></div>
+        <div class="dash-row"><div class="avatar">CP</div><div><div class="row-name">Carlos Pereira</div><div class="row-meta">Fluxo de escalamento ativo</div></div><span class="badge red">RISCO</span></div>
+        <div class="dash-row"><div class="avatar">AC</div><div><div class="row-name">Ana Costa</div><div class="row-meta">Pagamento reconciliado</div></div><span class="badge green">RECUPERADO</span></div>
+      </div>
+      <div class="float-card fc1"><strong>91%</strong><span>taxa de entrega</span></div>
+      <div class="float-card fc2"><strong>Última sync</strong><span>há 2 minutos</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="proof">
+  <div class="proof-inner">
+    <div class="proof-label">Indicadores operacionais</div>
+    <div class="proof-stat"><strong>3</strong><span>clubes piloto ativos</span></div>
+    <div class="proof-stat"><strong>€720</strong><span>quotas em atraso/mês num clube de 300 sócios (20% × €12)</span></div>
+    <div class="proof-stat"><strong>84%</strong><span>taxa de interação com mensagens automáticas</span></div>
+    <div class="proof-stat"><strong>-62%</strong><span>redução de carga administrativa</span></div>
+    <div class="proof-stat"><strong>24/7</strong><span>monitorização sem intervenção</span></div>
+  </div>
+  <div class="proof-clubs">
+    <div class="proof-clubs-inner">
+      <div class="proof-clubs-label">Clubes piloto</div>
+      <div class="proof-club-grid">
+        <div class="proof-club-card">
+          <div class="proof-club-top">
+            <span class="proof-club-id">P01</span>
+            <span class="proof-club-badge"><span class="live-dot"></span>Ativo</span>
+          </div>
+          <div class="proof-club-name">Clube Desportivo A</div>
+          <div class="proof-club-meta">Futebol amador · ~180 sócios · Lisboa</div>
+          <div class="proof-club-stats">
+            <div class="proof-club-stat"><strong>+38%</strong><span>quotas recuperadas</span></div>
+            <div class="proof-club-stat"><strong>€4.2k</strong><span>projeção anual</span></div>
+          </div>
+        </div>
+        <div class="proof-club-card">
+          <div class="proof-club-top">
+            <span class="proof-club-id">P02</span>
+            <span class="proof-club-badge"><span class="live-dot"></span>Ativo</span>
+          </div>
+          <div class="proof-club-name">Associação Desportiva B</div>
+          <div class="proof-club-meta">Futsal · ~120 sócios · Porto</div>
+          <div class="proof-club-stats">
+            <div class="proof-club-stat"><strong>+44%</strong><span>quotas recuperadas</span></div>
+            <div class="proof-club-stat"><strong>€2.8k</strong><span>projeção anual</span></div>
+          </div>
+        </div>
+        <div class="proof-club-card">
+          <div class="proof-club-top">
+            <span class="proof-club-id">P03</span>
+            <span class="proof-club-badge"><span class="live-dot"></span>Ativo</span>
+          </div>
+          <div class="proof-club-name">Sport Clube C</div>
+          <div class="proof-club-meta">Basquetebol · ~90 sócios · Coimbra</div>
+          <div class="proof-club-stats">
+            <div class="proof-club-stat"><strong>+51%</strong><span>quotas recuperadas</span></div>
+            <div class="proof-club-stat"><strong>€2.1k</strong><span>projeção anual</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="plataforma">
+  <div class="inner">
+    <div class="label reveal">Plataforma</div>
+    <h2 class="title reveal">Inteligência operacional a funcionar em segundo plano.</h2>
+    <p class="subtitle reveal">A plataforma monitoriza estados de pagamento, decide a próxima ação e move cada sócio por fluxos de recuperação sem pedir ao dirigente para gerir cada passo.</p>
+    <div class="cards" style="margin-top:2.5rem">
+      <article class="card accent reveal"><div class="card-icon">01</div><div class="card-title">Deteção em tempo real</div><p>O motor monitoriza ciclos de pagamento, atrasos, falhas e padrões de risco assim que os dados financeiros do clube se atualizam — sem necessidade de exportações manuais.</p></article>
+      <article class="card accent reveal"><div class="card-icon">02</div><div class="card-title">Sequências autónomas</div><p>Mensagens WhatsApp e email com tom, canal e timing escolhidos automaticamente a partir do histórico, comportamento e probabilidade de resposta de cada sócio.</p></article>
+      <article class="card accent reveal"><div class="card-icon">03</div><div class="card-title">Escalamento operacional</div><p>Quando o primeiro contacto não resolve, o sistema escala incentivos, ativa fluxos de retenção e atualiza o painel sem intervenção do dirigente.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="white-section">
+  <div class="inner">
+    <div class="label reveal">Workflow Autónomo</div>
+    <h2 class="title reveal">Do atraso detetado ao pagamento recuperado. Automaticamente.</h2>
+    <p class="subtitle reveal">Um ciclo operacional de cinco fases para clubes que precisam de receita previsível sem acompanhamento humano constante.</p>
+    <div class="status-strip reveal">
+      <div class="status-card"><div class="status-icon"><span class="live-dot"></span></div><div><div class="status-title">ATIVO</div><div class="status-sub">motor 24/7</div></div></div>
+      <div class="status-card"><div class="status-icon">3</div><div><div class="status-title">Contactos automáticos</div><div class="status-sub">hoje</div></div></div>
+      <div class="status-card"><div class="status-icon">↻</div><div><div class="status-title">PROCESSAMENTO</div><div class="status-sub">sem fila administrativa</div></div></div>
+      <div class="status-card"><div class="status-icon">2m</div><div><div class="status-title">Última sincronização</div><div class="status-sub">há 2 minutos</div></div></div>
+    </div>
+    <div class="flow reveal">
+      <div class="flow-step"><div class="flow-num">Sinal 01</div><div class="flow-title">Pagamento em atraso detetado</div><div class="flow-copy">O motor identifica atraso, valor e risco do sócio.</div><div class="flow-state">DETETADO</div></div>
+      <div class="flow-step"><div class="flow-num">Sinal 02</div><div class="flow-title">Lembrete inteligente acionado</div><div class="flow-copy">Canal, timing e tom são escolhidos automaticamente.</div><div class="flow-state">ACIONADO</div></div>
+      <div class="flow-step"><div class="flow-num">Sinal 03</div><div class="flow-title">WhatsApp/email enviado</div><div class="flow-copy">O canal com maior probabilidade de resposta é usado.</div><div class="flow-state">ENVIADO</div></div>
+      <div class="flow-step"><div class="flow-num">Sinal 04</div><div class="flow-title">Pagamento recuperado</div><div class="flow-copy">O pagamento é reconciliado e ligado ao perfil do sócio.</div><div class="flow-state">RECUPERADO</div></div>
+      <div class="flow-step"><div class="flow-num">Sinal 05</div><div class="flow-title">Painel atualizado</div><div class="flow-copy">Estado, sequência e atividade ficam atualizados em tempo real.</div><div class="flow-state">DIRETO</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section">
+  <div class="inner">
+    <div class="label reveal">Analytics Operacional</div>
+    <h2 class="title reveal">Um cockpit vivo para recuperação de quotas.</h2>
+    <p class="subtitle reveal">Métricas executivas, tendências de recuperação e atividade do sistema dão confiança aos dirigentes mesmo quando não estão a acompanhar a operação.</p>
+    <div class="kpis reveal"><div class="kpi"><div class="kpi-value">+43%</div><div class="kpi-label">taxa de recuperação</div></div><div class="kpi"><div class="kpi-value">91%</div><div class="kpi-label">taxa de entrega</div></div><div class="kpi"><div class="kpi-value">€12k</div><div class="kpi-label">pagamentos recuperados</div></div><div class="kpi"><div class="kpi-value">-62%</div><div class="kpi-label">carga administrativa</div></div></div>
+    <div class="charts reveal"><div class="chart-card"><div class="chart-head"><div class="chart-title">Tendência de pagamentos recuperados</div><div class="chart-badge">ATIVO</div></div><div class="chart-wrap"><canvas id="recoveryChart"></canvas></div></div><div class="feed-card"><div class="chart-head"><div class="chart-title">Fluxo de atividade</div><div class="chart-badge">ONLINE</div></div><div class="feed-list" id="feedList"></div></div></div>
+  </div>
+</section>
+
+<section id="casos">
+  <div class="inner">
+    <div class="label reveal">Casos de Uso</div>
+    <h2 class="title reveal">Construído para dirigentes que gerem clubes fora do horário de trabalho.</h2>
+    <p class="subtitle reveal">ClubPulse reduz a pressão operacional da cobrança de quotas ao substituir acompanhamento repetitivo por monitorização automática fiável.</p>
+    <div class="cards" style="margin-top:2.5rem"><article class="card reveal"><div class="card-icon">AI</div><div class="card-title">Inteligência operacional</div><p>Segmenta automaticamente os sócios por estado de pagamento, nível de risco e canal mais provável de resposta — sem o dirigente abrir uma folha de cálculo.</p></article><article class="card reveal"><div class="card-icon">WA</div><div class="card-title">Comunicação dirigida</div><p>Sequências personalizadas em WhatsApp e email substituem o ruído de mensagens de grupo por contactos individuais com tom adequado a cada sócio.</p></article><article class="card reveal"><div class="card-icon">RT</div><div class="card-title">Retenção proactiva</div><p>Recompensas, incentivos e ofertas de regularização ativam-se antes do abandono — convertendo risco de saída em receita recuperada.</p></article></div>
+  </div>
+</section>
+
+<section id="recompensas" class="rewards-section">
+  <div class="inner">
+    <div class="rewards-head">
+      <div>
+        <div class="label reveal">Recompensas</div>
+        <h2 class="title reveal">Transforme o pagamento num hábito.</h2>
+        <p class="subtitle reveal">Sócios que pagam consistentemente acumulam recompensas reais. Quanto mais tempo, mais valioso o prémio — uma camada de retenção operacional que substitui pressão por reconhecimento.</p>
+      </div>
+      <div class="rewards-meta reveal">
+        <div class="rw-meta-pill"><span class="pulse-ring sm"></span>Sistema de retenção ativo</div>
+        <div class="rw-meta-stat"><strong>+38%</strong><span>retenção média entre sócios em programa</span></div>
+      </div>
+    </div>
+
+    <div class="rewards-track reveal">
+      <div class="reward-card tier-1">
+        <div class="rw-tier">Nível I · Sócio Consistente</div>
+        <div class="rw-icon" aria-hidden="true">🏷️</div>
+        <div class="rw-badge">3 meses seguidos</div>
+        <div class="rw-title">Desconto de 10% na próxima quota</div>
+        <p class="rw-copy">Reconhecimento imediato para sócios que mantêm pagamentos em dia desde o início da época.</p>
+        <div class="rw-progress"><div class="rw-progress-bar" style="width:25%"></div></div>
+        <div class="rw-foot">Acionado automaticamente</div>
+      </div>
+
+      <div class="reward-card tier-2">
+        <div class="rw-tier">Nível II · Apoiante Ativo</div>
+        <div class="rw-icon" aria-hidden="true">🧣</div>
+        <div class="rw-badge">6 meses seguidos</div>
+        <div class="rw-title">Cachecol oficial do clube</div>
+        <p class="rw-copy">Recompensa tangível ao fim de meia época sem falhas — entrega coordenada com a equipa de comunicação.</p>
+        <div class="rw-progress"><div class="rw-progress-bar" style="width:50%"></div></div>
+        <div class="rw-foot">Acionado automaticamente</div>
+      </div>
+
+      <div class="reward-card tier-3">
+        <div class="rw-tier">Nível III · Embaixador</div>
+        <div class="rw-icon" aria-hidden="true">👕</div>
+        <div class="rw-badge">12 meses seguidos</div>
+        <div class="rw-title">Camisola assinada pelos atletas</div>
+        <p class="rw-copy">Recompensa de prestígio para sócios que completam uma época inteira em dia — peça exclusiva e identificada.</p>
+        <div class="rw-progress"><div class="rw-progress-bar" style="width:75%"></div></div>
+        <div class="rw-foot">Edição limitada · entrega cerimonial</div>
+      </div>
+
+      <div class="reward-card tier-4">
+        <div class="rw-prestige"><span class="pulse-ring sm"></span>Prestígio máximo</div>
+        <div class="rw-tier">Nível IV · Sócio de Honra</div>
+        <div class="rw-icon" aria-hidden="true">👑</div>
+        <div class="rw-badge">24 meses seguidos</div>
+        <div class="rw-title">Lugar VIP nos jogos + Sócio de Honra</div>
+        <p class="rw-copy">Estatuto vitalício de reconhecimento, acesso a área VIP em jogos em casa e presença oficial em assembleias.</p>
+        <div class="rw-progress"><div class="rw-progress-bar" style="width:100%"></div></div>
+        <div class="rw-foot">Cerimónia anual · diretiva do clube</div>
+      </div>
+    </div>
+
+    <div class="rewards-sub">
+      <div class="rewards-sub-head">
+        <div class="ecosystem-label reveal">Para quem regulariza dívidas</div>
+        <h3 class="rewards-sub-title reveal">Recuperação com incentivo — não só com cobrança.</h3>
+        <p class="rewards-sub-copy reveal">O motor de recuperação ativa ofertas de regularização em momentos cirúrgicos. O objetivo não é apenas cobrar, é trazer o sócio de volta ao programa de fidelização.</p>
+      </div>
+      <div class="rewards-sub-grid">
+        <div class="incentive-card reveal">
+          <div class="ic-head">
+            <span class="ic-icon" aria-hidden="true">💸</span>
+            <span class="pc-status status-live"><span class="live-dot"></span>Incentivo ativo</span>
+          </div>
+          <div class="ic-title">Pagamento em atraso</div>
+          <p class="ic-copy">20% de desconto no total em dívida ao regularizar de uma vez. Aplicado automaticamente quando o sócio responde à sequência de recuperação.</p>
+          <div class="ic-meta"><span class="pc-dot"></span>Acionado por Recovery AI · janela de 7 dias</div>
+        </div>
+        <div class="incentive-card reveal">
+          <div class="ic-head">
+            <span class="ic-icon" aria-hidden="true">🧣</span>
+            <span class="pc-status status-dev">Janela de 30 dias</span>
+          </div>
+          <div class="ic-title">Regularização rápida</div>
+          <p class="ic-copy">Cachecol do clube oferecido e streak mantido como se não tivesse falhado — preserva o histórico de fidelização e devolve o sócio ao programa de recompensas.</p>
+          <div class="ic-meta"><span class="pc-dot"></span>Streak protegido · sem reinício de nível</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="produtos" class="products-section">
+  <div class="inner">
+    <div class="products-head">
+      <div>
+        <div class="label reveal">Ecossistema</div>
+        <h2 class="title reveal">Próximos módulos do ecossistema ClubPulse.</h2>
+        <p class="subtitle reveal">A recuperação autónoma de quotas é o MVP em produção. Esta secção apresenta a expansão planeada do sistema operativo — novos módulos conceptuais que vão alargar a plataforma para além da recuperação financeira.</p>
+      </div>
+      <div class="products-meta reveal">
+        <div class="meta-block"><div class="meta-num">01</div><div class="meta-label">MVP em produção</div></div>
+        <div class="meta-block"><div class="meta-num">04</div><div class="meta-label">módulos no roadmap</div></div>
+      </div>
+    </div>
+    <div class="mvp-callout reveal">
+      <div class="mvp-callout-info">
+        <span class="pc-status status-live"><span class="live-dot"></span>MVP em produção</span>
+        <div class="mvp-title">Sistema Autónomo de Recuperação de Quotas</div>
+        <p class="mvp-copy">O único módulo do ecossistema com plataforma operacional ativa e demonstração interativa. Os módulos abaixo são extensões futuras do mesmo sistema operativo.</p>
+      </div>
+      <div class="mvp-actions">
+        <a class="btn btn-amber" href="demo.html">Experimentar Demo</a>
+        <a class="btn btn-ghost-white" href="#contacto">Falar com a equipa</a>
+      </div>
+    </div>
+    <div class="mvp-callout reveal" style="background:linear-gradient(120deg,rgba(46,95,163,.18),rgba(46,95,163,.04) 55%,rgba(31,56,100,.5));border-color:rgba(109,158,231,.28)">
+      <div class="mvp-callout-info">
+        <span class="pc-status status-dev">4 módulos no roadmap</span>
+        <div class="mvp-title">Produtos futuros do ecossistema</div>
+        <p class="mvp-copy">Histórico técnico dos atletas, gestão de despesas, comunicação interna e relatórios automáticos — os próximos módulos que vão alargar a plataforma para além da recuperação de quotas.</p>
+      </div>
+      <div class="mvp-actions">
+        <a class="btn btn-amber" href="produtos.html">Ver todos os produtos →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="inner"><div class="label reveal">Abrir Plataforma</div><h2 class="title reveal">Entre no centro de comando operacional.</h2><p class="reveal">Explore um painel dedicado com estados autónomos, alertas do sistema, análise e fluxos de recuperação em tempo real.</p><div class="cta-actions reveal"><a class="btn btn-white btn-lg" href="demo.html">Experimentar Demo</a><a class="btn btn-ghost-white btn-lg" href="#contacto">Agendar Demonstração</a></div></div>
+</section>
+
+<section id="contacto" class="contact-section">
+  <div class="inner contact-shell">
+    <div><div class="label reveal">Contacto</div><h2 class="title reveal">Agende uma demonstração para o seu clube.</h2><p class="subtitle reveal">Diga-nos como o clube gere quotas hoje e mostramos como a recuperação autónoma pode encaixar no vosso fluxo.</p><div class="contact-metrics reveal"><div class="metric"><strong>24/7</strong><span>monitorização</span></div><div class="metric"><strong>0</strong><span>filas administrativas</span></div><div class="metric"><strong>3</strong><span>clubes piloto</span></div><div class="metric"><strong>2m</strong><span>demonstração operacional</span></div></div></div>
+    <form class="contact-panel form reveal" onsubmit="event.preventDefault();document.getElementById('formMsg').textContent='Pedido recebido. Entraremos em contacto brevemente.'">
+      <div><label for="name">Nome</label><input id="name" required placeholder="Dirigente do clube"></div>
+      <div><label for="email">Email</label><input id="email" type="email" required placeholder="dirigente@clube.pt"></div>
+      <div><label for="message">Mensagem</label><textarea id="message" required placeholder="Conte-nos quantos sócios tem o clube e como gerem quotas hoje."></textarea></div>
+      <button class="btn btn-amber btn-lg" type="submit">Pedir Demonstração</button><p class="form-note" id="formMsg">Sem compromisso. Projeto de inovação universitária.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="footer-inner"><a class="logo" href="index.html" style="color:#fff">ClubPulse<span class="logo-dot"></span></a><ul class="footer-links"><li><a href="#produtos">Produtos</a></li><li><a href="#plataforma">Plataforma</a></li><li><a href="#casos">Casos de Uso</a></li><li><a href="demo.html">Demonstração</a></li><li><a href="#contacto">Contacto</a></li></ul><div>© 2025 ClubPulse</div></div></footer>
+</body>
+</html>

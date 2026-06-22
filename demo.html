@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClubPulse — Centro Operacional Autónomo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body class="app-body">
+<div class="mobile-top"><a class="app-brand" href="index.html">ClubPulse<span class="logo-dot"></span></a><a class="btn btn-ghost" href="index.html">Site</a></div>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="app-brand" href="index.html">ClubPulse<span class="logo-dot"></span></a>
+    <div class="side-section-label">Workspace</div>
+    <nav class="side-nav">
+      <a class="active" href="#visao">Visão Geral</a>
+      <a href="#operacoes">Operações</a>
+      <a href="#automacao">Automação</a>
+      <a href="#analytics">Análise</a>
+      <a href="#comunicacoes">Comunicações</a>
+      <a href="#sistema">Sistema</a>
+      <a href="#contacto-ops">Contacto</a>
+    </nav>
+    <div class="side-status">
+      <div class="ss-head"><span class="pulse-ring"></span><span class="ss-title">SISTEMA ATIVO</span></div>
+      <div class="ss-rows">
+        <div class="ss-row"><span class="ss-label">Fluxos monitorizados</span><span class="ss-value">247</span></div>
+        <div class="ss-row"><span class="ss-label">Workers ativos</span><span class="ss-value">12 / 12</span></div>
+        <div class="ss-row"><span class="ss-label">Última sincronização</span><span class="ss-value" id="sideSync">há 12s</span></div>
+        <div class="ss-row"><span class="ss-label">Latência média</span><span class="ss-value">182ms</span></div>
+      </div>
+      <div class="ss-note"><span class="live-dot"></span>Sincronização automática ativa</div>
+    </div>
+    <div class="side-footer">v1.4.2 · Edge OPS</div>
+  </aside>
+  <main class="app-main">
+    <div class="topbar">
+      <div>
+        <div class="top-eyebrow">Workspace Operacional</div>
+        <div class="top-title">Centro Operacional Autónomo</div>
+        <div class="sync">25 sócios monitorizados · 7 eventos automáticos hoje · uptime 99.98%</div>
+      </div>
+      <div class="top-actions">
+        <div class="ops-pill"><span class="pulse-ring sm"></span>Motor Operacional Ativo</div>
+        <a class="btn btn-ghost" href="index.html">Voltar ao Site</a>
+      </div>
+    </div>
+    <div class="app-content">
+
+      <section class="hero-panel" id="visao">
+        <div class="dash-live"><span class="live-dot"></span>Motor de recuperação em execução</div>
+        <h1>Recuperação autónoma de quotas em tempo real.</h1>
+        <p>Este workspace mostra deteção automática, lembretes WhatsApp, escalamentos, reconciliação de pagamentos e atualização de estados sem ações manuais. O motor opera 24/7 — os dirigentes apenas supervisionam.</p>
+      </section>
+
+      <section class="ops-command" id="comando">
+        <div class="ops-command-head">
+          <div>
+            <div class="ops-eyebrow"><span class="pulse-ring sm"></span>Sistema Autónomo · Live</div>
+            <div class="ops-title">Eventos operacionais em tempo real</div>
+            <div class="ops-sub">Fluxos de recuperação a executar agora — deteção, comunicação, escalamento e reconciliação.</div>
+          </div>
+          <div class="ops-pills">
+            <div class="ops-pill compact"><span class="pulse-ring sm"></span>Motor 24/7</div>
+            <div class="ops-pill compact ghost">Sync <strong id="opsSync">há 12s</strong></div>
+          </div>
+        </div>
+
+        <div class="ops-strip">
+          <div class="ops-stat"><div class="ops-stat-num">247</div><div class="ops-stat-label">fluxos monitorizados</div></div>
+          <div class="ops-stat"><div class="ops-stat-num">12</div><div class="ops-stat-label">recuperações em execução</div></div>
+          <div class="ops-stat"><div class="ops-stat-num">3</div><div class="ops-stat-label">escalamentos automáticos</div></div>
+          <div class="ops-stat"><div class="ops-stat-num">€840</div><div class="ops-stat-label">recuperados hoje</div></div>
+        </div>
+
+        <div class="ops-grid">
+          <div class="ops-timeline-card">
+            <div class="chart-head">
+              <div>
+                <div class="app-card-title">Timeline operacional</div>
+                <div class="app-card-meta">Cada evento é gerado autonomamente pelo motor</div>
+              </div>
+              <div class="dash-live"><span class="live-dot"></span>LIVE</div>
+            </div>
+            <div class="ops-timeline" id="opsTimeline"></div>
+          </div>
+
+          <div class="ops-workflows">
+            <div class="chart-head">
+              <div>
+                <div class="app-card-title">Workflows ativos</div>
+                <div class="app-card-meta">Distribuição por fase</div>
+              </div>
+            </div>
+            <div class="wf-list">
+              <div class="wf-row"><div class="wf-dot wf-amber"></div><div class="wf-info"><div class="wf-name">Lembretes WhatsApp</div><div class="wf-meta">Em entrega</div></div><div class="wf-count">8</div></div>
+              <div class="wf-row"><div class="wf-dot wf-blue"></div><div class="wf-info"><div class="wf-name">Aguarda confirmação</div><div class="wf-meta">Pagamento pendente</div></div><div class="wf-count">5</div></div>
+              <div class="wf-row"><div class="wf-dot wf-red"></div><div class="wf-info"><div class="wf-name">Escalamento ativo</div><div class="wf-meta">Sequência avançada</div></div><div class="wf-count">3</div></div>
+              <div class="wf-row"><div class="wf-dot wf-green"></div><div class="wf-info"><div class="wf-name">Reconciliação</div><div class="wf-meta">Pagamentos confirmados</div></div><div class="wf-count">4</div></div>
+              <div class="wf-row"><div class="wf-dot wf-purple"></div><div class="wf-info"><div class="wf-name">Retenção proactiva</div><div class="wf-meta">Risco antecipado</div></div><div class="wf-count">2</div></div>
+            </div>
+            <div class="wf-footer"><span class="live-dot"></span>Decisões executadas sem intervenção</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="supporting-label" id="metricas">Indicadores de suporte · Performance operacional</div>
+      <section class="status-grid supporting">
+        <div class="app-card topline kpi-soft"><div class="kpi-value">+43%</div><div class="kpi-label">Taxa de Recuperação</div><div class="kpi-sub">vs. processo tradicional</div></div>
+        <div class="app-card topline kpi-soft"><div class="kpi-value">91%</div><div class="kpi-label">Taxa de Entrega</div><div class="kpi-sub">timing inteligente ativo</div></div>
+        <div class="app-card topline kpi-soft"><div class="kpi-value">€12k</div><div class="kpi-label">Pagamentos Recuperados</div><div class="kpi-sub">projeção anual piloto</div></div>
+        <div class="app-card topline kpi-soft"><div class="kpi-value">-62%</div><div class="kpi-label">Carga Administrativa</div><div class="kpi-sub">sem fila de lembretes</div></div>
+      </section>
+
+      <section class="app-grid" id="operacoes">
+        <div class="app-card">
+          <div class="chart-head"><div><div class="app-card-title">Fila de monitorização inteligente</div><div class="app-card-meta">Clique num sócio para inspecionar a automação</div></div><div class="app-card-meta">Sync: 2m</div></div>
+          <div class="member-list" id="memberList"></div>
+        </div>
+        <div class="app-card" id="comunicacoes">
+          <div class="chart-head"><div><div class="app-card-title">Atividade de comunicações</div><div class="app-card-meta">Eventos do sistema</div></div><div class="dash-live"><span class="live-dot"></span>ONLINE</div></div>
+          <div class="feed-list" id="feed"></div>
+        </div>
+      </section>
+
+      <section class="app-grid" id="analytics">
+        <div class="app-card">
+          <div class="chart-head"><div><div class="app-card-title">Tendência de recuperação</div><div class="app-card-meta">Últimos 6 meses</div></div><div class="dash-live"><span class="live-dot"></span>DIRETO</div></div>
+          <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+        </div>
+        <div class="app-card">
+          <div class="chart-head"><div><div class="app-card-title">Estados de pagamento</div><div class="app-card-meta">Mês atual</div></div></div>
+          <div class="chart-wrap"><canvas id="stateChart"></canvas></div>
+        </div>
+      </section>
+
+      <section class="app-card" id="automacao">
+        <div class="chart-head"><div><div class="app-card-title">Pipeline autónomo de recuperação</div><div class="app-card-meta">Sem fila de notificação para gerir</div></div></div>
+        <div class="automation"><div class="auto-step"><div class="auto-kicker">01 DETEÇÃO</div><div class="auto-title">Pagamento em atraso</div><div class="auto-copy">Estado de risco identificado.</div></div><div class="auto-step"><div class="auto-kicker">02 PROCESSAMENTO</div><div class="auto-title">Lembrete inteligente</div><div class="auto-copy">Mensagem e canal selecionados.</div></div><div class="auto-step"><div class="auto-kicker">03 COMUNICAÇÃO</div><div class="auto-title">WhatsApp/email</div><div class="auto-copy">Entrega executada automaticamente.</div></div><div class="auto-step"><div class="auto-kicker">04 RECUPERAÇÃO</div><div class="auto-title">Pagamento reconciliado</div><div class="auto-copy">Estado financeiro atualizado.</div></div><div class="auto-step"><div class="auto-kicker">05 MONITORIZAÇÃO</div><div class="auto-title">Painel em direto</div><div class="auto-copy">Perfil e sequência atualizados.</div></div></div>
+      </section>
+
+      <section class="detail" id="detail">
+        <div class="app-card detail-card">
+          <div>
+            <div class="chart-head"><div><div class="app-card-title" id="detailName">Automação do sócio</div><div class="app-card-meta" id="detailMeta">Sequência de recuperação</div></div><button class="btn btn-ghost" onclick="closeDetail()">Fechar</button></div>
+            <div class="timeline" id="timeline"></div>
+          </div>
+          <div class="phone"><div class="phone-inner"><div class="phone-status"><span>9:41</span><span>5G</span></div><div class="push"><div class="push-head"><span>ClubPulse</span><span>agora</span></div><div class="push-msg" id="phoneMsg"></div></div></div></div>
+        </div>
+      </section>
+
+      <section class="app-card system-panel" id="sistema">
+        <div class="chart-head">
+          <div><div class="app-card-title">Estado do sistema</div><div class="app-card-meta">Infraestrutura, integrações e workers</div></div>
+          <div class="dash-live"><span class="live-dot"></span>OPERACIONAL</div>
+        </div>
+        <div class="system-grid">
+          <div class="sys-item"><span class="sys-dot ok"></span><div><div class="sys-name">Motor de recuperação</div><div class="sys-meta">Em execução · uptime 99.98%</div></div></div>
+          <div class="sys-item"><span class="sys-dot ok"></span><div><div class="sys-name">Integração WhatsApp</div><div class="sys-meta">Entregas confirmadas · 91%</div></div></div>
+          <div class="sys-item"><span class="sys-dot ok"></span><div><div class="sys-name">Webhook de pagamentos</div><div class="sys-meta">Eventos recebidos em <strong>&lt; 800ms</strong></div></div></div>
+          <div class="sys-item"><span class="sys-dot warn"></span><div><div class="sys-name">Reconciliação bancária</div><div class="sys-meta">Sync diário · próximo às 23:50</div></div></div>
+          <div class="sys-item"><span class="sys-dot ok"></span><div><div class="sys-name">Motor de regras</div><div class="sys-meta">12 políticas ativas</div></div></div>
+          <div class="sys-item"><span class="sys-dot ok"></span><div><div class="sys-name">Auditoria</div><div class="sys-meta">Logs assinados · retenção 90d</div></div></div>
+        </div>
+      </section>
+
+      <section class="contact-ops" id="contacto-ops">
+        <div class="contact-ops-head">
+          <div>
+            <div class="ops-eyebrow"><span class="pulse-ring sm"></span>Business Operations</div>
+            <div class="ops-title">Contacto operacional · onboarding empresarial</div>
+            <div class="ops-sub">Canal direto para demonstrações executivas, integrações operacionais e onboarding de novos clubes. Cada pedido entra no mesmo motor de workflows que executa as recuperações.</div>
+          </div>
+          <div class="contact-ops-pills">
+            <div class="ops-pill compact"><span class="pulse-ring sm"></span>Equipa disponível</div>
+            <div class="ops-pill compact ghost">Tempo de resposta <strong>&lt; 2h</strong></div>
+          </div>
+        </div>
+
+        <div class="contact-info-grid">
+          <div class="ci-card">
+            <div class="ci-head"><span class="ci-icon">📅</span><div class="ci-label">Demonstrações disponíveis</div></div>
+            <div class="ci-value">Quarta-feira · 14:30</div>
+            <div class="ci-meta">Próxima janela executiva · 45 min</div>
+          </div>
+          <div class="ci-card">
+            <div class="ci-head"><span class="ci-icon">⚙</span><div class="ci-label">Integração operacional</div></div>
+            <div class="ci-value">48h</div>
+            <div class="ci-meta">Onboarding médio até live</div>
+          </div>
+          <div class="ci-card">
+            <div class="ci-head"><span class="ci-icon">✉</span><div class="ci-label">Contacto empresarial</div></div>
+            <a class="ci-value ci-link" href="mailto:partnerships@clubpulse.pt">partnerships@clubpulse.pt</a>
+            <div class="ci-meta">Parcerias · pilotos · escalamento</div>
+          </div>
+          <div class="ci-card">
+            <div class="ci-head"><span class="ci-icon"><span class="live-dot"></span></span><div class="ci-label">Estado da plataforma</div></div>
+            <div class="ci-value ci-status-ok">Sistema operacional ativo</div>
+            <div class="ci-meta">Uptime 99.98% · sem incidentes</div>
+          </div>
+        </div>
+
+        <div class="contact-actions">
+          <a class="action-card" href="index.html#contacto">
+            <div class="ac-top"><span class="ac-id">AC01</span><span class="pc-status status-live"><span class="live-dot"></span>Disponível</span></div>
+            <div class="ac-title">Agendar Demonstração</div>
+            <p class="ac-copy">Sessão guiada de 45 minutos com a equipa operacional para mapear o fluxo de quotas do clube e ativar o motor autónomo de recuperação.</p>
+            <div class="ac-cta">Reservar sessão <span>→</span></div>
+          </a>
+          <a class="action-card" href="mailto:partnerships@clubpulse.pt">
+            <div class="ac-top"><span class="ac-id">AC02</span><span class="pc-status status-dev">Equipa</span></div>
+            <div class="ac-title">Contactar Equipa</div>
+            <p class="ac-copy">Linha direta para direção desportiva, financeira e tecnológica. Pedidos comerciais e pilotos são encaminhados em menos de 2 horas úteis.</p>
+            <div class="ac-cta">Enviar mensagem <span>→</span></div>
+          </a>
+          <a class="action-card" href="index.html#contacto">
+            <div class="ac-top"><span class="ac-id">AC03</span><span class="pc-status status-future">Integração</span></div>
+            <div class="ac-title">Pedido de Integração</div>
+            <p class="ac-copy">Iniciar onboarding técnico: conectar pagamentos, importar sócios e ativar políticas de recuperação. Toda a integração é assistida pela equipa.</p>
+            <div class="ac-cta">Iniciar onboarding <span>→</span></div>
+          </a>
+        </div>
+
+        <div class="onboarding-strip">
+          <div class="ob-head"><div class="app-card-title">Estado de onboarding</div><div class="app-card-meta">Cada novo clube percorre o mesmo pipeline operacional</div></div>
+          <div class="ob-track">
+            <div class="ob-step done"><div class="ob-num">01</div><div class="ob-name">Reunião executiva</div><div class="ob-meta">Concluída</div></div>
+            <div class="ob-step done"><div class="ob-num">02</div><div class="ob-name">Mapeamento operacional</div><div class="ob-meta">Concluído</div></div>
+            <div class="ob-step active"><div class="ob-num">03</div><div class="ob-name">Integração de pagamentos</div><div class="ob-meta">Em curso · ETA 48h</div></div>
+            <div class="ob-step"><div class="ob-num">04</div><div class="ob-name">Ativação do motor</div><div class="ob-meta">Aguarda integração</div></div>
+            <div class="ob-step"><div class="ob-num">05</div><div class="ob-name">Live operacional</div><div class="ob-meta">Aguarda ativação</div></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
