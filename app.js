@@ -45,7 +45,7 @@ function initLandingChart(){
   const grad=ctx.createLinearGradient(0,0,0,260);
   grad.addColorStop(0,'rgba(245,166,35,.28)');
   grad.addColorStop(1,'rgba(245,166,35,0)');
-  new Chart(ctx,{type:'line',data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun'],datasets:[{data:[180,240,290,310,340,360],borderColor:'#F5A623',backgroundColor:grad,fill:true,tension:.42,borderWidth:3,pointRadius:4,pointBackgroundColor:'#F5A623'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(11,22,41,.96)',padding:12,displayColors:false,callbacks:{label:c=>'€'+c.parsed.y.toLocaleString('pt-PT')+' recuperados'}}},scales:{x:{grid:{color:'rgba(255,255,255,.05)'}},y:{min:0,max:500,grid:{color:'rgba(255,255,255,.05)'},ticks:{callback:v=>'€'+v}}},animation:{duration:1300,easing:'easeOutQuart'}}});
+  new Chart(ctx,{type:'line',data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun'],datasets:[{data:[180,240,290,310,340,360],borderColor:'#F5A623',backgroundColor:grad,fill:true,tension:.42,borderWidth:3,pointRadius:4,pointBackgroundColor:'#F5A623'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(11,22,41,.96)',padding:12,displayColors:false,callbacks:{label:c=>'€'+c.parsed.y.toLocaleString('pt-PT')+' recuperados'}}},scales:{x:{grid:{color:'rgba(255,255,255,.05)'}},y:{min:100,max:420,grid:{color:'rgba(255,255,255,.05)'},ticks:{callback:v=>'€'+v}}},animation:{duration:1300,easing:'easeOutQuart'}}});
 }
 
 const members=[
