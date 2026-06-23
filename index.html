@@ -6,12 +6,34 @@
 <title>ClubPulse — Plataforma Autónoma de Recuperação de Quotas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
+/* Títulos com serif, como no site de referência */
+.title, h1, h2{font-family:'Playfair Display', Georgia, serif}
+.hero h1{font-family:'Playfair Display', Georgia, serif;letter-spacing:-1px}
+
+/* Contraste melhorado — texto mais escuro nas secções claras */
+body{color:#0f172a}
+p{color:#334155}
+.subtitle{color:#334155}
+.card p{color:#334155}
+.card-title{color:#0f172a}
+
+/* Botões mais limpos e sólidos */
+.btn-amber{background:#F5A623;color:#fff;box-shadow:none;border-radius:8px;font-weight:700}
+.btn-amber:hover{background:#d98e16;box-shadow:none;transform:none}
+.btn-ghost{background:#fff;border:2px solid #0f172a;color:#0f172a;border-radius:8px;font-weight:700}
+.btn-ghost:hover{background:#0f172a;color:#fff;transform:none}
+.btn-ghost-white{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff;border-radius:8px;font-weight:700}
+.btn-ghost-white:hover{background:rgba(255,255,255,.12);transform:none}
+
+/* Hero */
 .hero-inner{max-width:1400px;margin:0 auto;padding:5rem 3rem}
-.proof{padding:2.4rem 2rem}.proof-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:auto repeat(5,1fr);align-items:center;gap:2.2rem}.proof-label{font-size:1.35rem;font-weight:800;letter-spacing:-.3px;color:var(--navy);text-transform:none;white-space:nowrap}.proof-stat strong{font-size:2rem;letter-spacing:-.8px}.proof-stat span{font-size:1rem;max-width:200px;line-height:1.45}
-.proof-clubs{background:var(--bg);border-bottom:1px solid var(--border);padding:2.2rem 2rem}.proof-clubs-inner{max-width:1400px;margin:0 auto}.proof-clubs-label{font-size:1.35rem;font-weight:800;letter-spacing:-.3px;color:var(--navy);margin-bottom:1.2rem}.proof-club-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}.proof-club-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.4rem;box-shadow:0 1px 4px rgba(31,56,100,.06)}.proof-club-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem}.proof-club-id{font-size:.74rem;font-weight:800;letter-spacing:1.8px;color:var(--muted);font-family:'JetBrains Mono','SF Mono',Inter,monospace}.proof-club-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:800;color:var(--green);background:rgba(39,174,96,.08);border:1px solid rgba(39,174,96,.2);padding:.28rem .65rem;border-radius:999px}.proof-club-name{font-size:1.12rem;font-weight:800;color:var(--navy);letter-spacing:-.3px}.proof-club-meta{font-size:.9rem;color:var(--muted);margin-top:.25rem;margin-bottom:.9rem}.proof-club-stats{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.proof-club-stat strong{display:block;font-size:1.4rem;color:var(--navy);font-weight:800;letter-spacing:-.5px;line-height:1}.proof-club-stat span{font-size:.84rem;color:var(--muted);margin-top:.22rem;display:block}
+
+/* Indicadores */
+.proof{padding:2.4rem 2rem}.proof-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:auto repeat(5,1fr);align-items:center;gap:2.2rem}.proof-label{font-size:1.35rem;font-weight:800;letter-spacing:-.3px;color:#0f172a;text-transform:none;white-space:nowrap}.proof-stat strong{font-size:2rem;letter-spacing:-.8px;color:#0f172a}.proof-stat span{font-size:1rem;max-width:200px;line-height:1.45;color:#334155}
+.proof-clubs{background:var(--bg);border-bottom:1px solid var(--border);padding:2.2rem 2rem}.proof-clubs-inner{max-width:1400px;margin:0 auto}.proof-clubs-label{font-size:1.35rem;font-weight:800;letter-spacing:-.3px;color:#0f172a;margin-bottom:1.2rem}.proof-club-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}.proof-club-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.4rem;box-shadow:0 1px 4px rgba(31,56,100,.06)}.proof-club-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem}.proof-club-id{font-size:.74rem;font-weight:800;letter-spacing:1.8px;color:var(--muted);font-family:'JetBrains Mono','SF Mono',Inter,monospace}.proof-club-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:800;color:var(--green);background:rgba(39,174,96,.08);border:1px solid rgba(39,174,96,.2);padding:.28rem .65rem;border-radius:999px}.proof-club-name{font-size:1.12rem;font-weight:800;color:#0f172a;letter-spacing:-.3px}.proof-club-meta{font-size:.9rem;color:#334155;margin-top:.25rem;margin-bottom:.9rem}.proof-club-stats{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.proof-club-stat strong{display:block;font-size:1.4rem;color:#0f172a;font-weight:800;letter-spacing:-.5px;line-height:1}.proof-club-stat span{font-size:.84rem;color:#334155;margin-top:.22rem;display:block}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 <script src="app.js" defer></script>
