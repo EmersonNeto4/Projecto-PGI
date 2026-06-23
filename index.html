@@ -13,12 +13,14 @@
 .title, h1, h2{font-family:'Playfair Display', Georgia, serif !important}
 .hero h1{font-family:'Playfair Display', Georgia, serif !important;letter-spacing:-1px !important}
 
-/* Contraste melhorado */
+/* Contraste melhorado — APENAS secções claras */
 body{color:#0f172a !important}
-p{color:#334155 !important}
-.subtitle{color:#334155 !important}
+section:not(.dark-section):not(.hero):not(.products-section):not(.rewards-section):not(.cta) p{color:#334155 !important}
+section:not(.dark-section):not(.hero):not(.products-section):not(.rewards-section):not(.cta) .subtitle{color:#334155 !important}
 .card p{color:#334155 !important}
 .card-title{color:#0f172a !important}
+/* Restaurar cor clara nas secções escuras */
+.dark-section p, .dark-section .subtitle,.hero p,.hero .hero-sub,.products-section p,.rewards-section p,.cta p{color:inherit !important}
 
 /* Botões */
 .btn-amber{background:#F5A623 !important;color:#fff !important;box-shadow:none !important;border-radius:8px !important}
