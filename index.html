@@ -8,6 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+.hero-inner{max-width:1400px;margin:0 auto;padding:5rem 3rem}
+.proof{padding:2.4rem 2rem}.proof-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:auto repeat(5,1fr);align-items:center;gap:2.2rem}.proof-label{font-size:1.35rem;font-weight:800;letter-spacing:-.3px;color:var(--navy);text-transform:none;white-space:nowrap}.proof-stat strong{font-size:2rem;letter-spacing:-.8px}.proof-stat span{font-size:1rem;max-width:200px;line-height:1.45}
+.proof-clubs{background:var(--bg);border-bottom:1px solid var(--border);padding:2.2rem 2rem}.proof-clubs-inner{max-width:1400px;margin:0 auto}.proof-clubs-label{font-size:1.35rem;font-weight:800;letter-spacing:-.3px;color:var(--navy);margin-bottom:1.2rem}.proof-club-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}.proof-club-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.4rem;box-shadow:0 1px 4px rgba(31,56,100,.06)}.proof-club-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem}.proof-club-id{font-size:.74rem;font-weight:800;letter-spacing:1.8px;color:var(--muted);font-family:'JetBrains Mono','SF Mono',Inter,monospace}.proof-club-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:800;color:var(--green);background:rgba(39,174,96,.08);border:1px solid rgba(39,174,96,.2);padding:.28rem .65rem;border-radius:999px}.proof-club-name{font-size:1.12rem;font-weight:800;color:var(--navy);letter-spacing:-.3px}.proof-club-meta{font-size:.9rem;color:var(--muted);margin-top:.25rem;margin-bottom:.9rem}.proof-club-stats{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.proof-club-stat strong{display:block;font-size:1.4rem;color:var(--navy);font-weight:800;letter-spacing:-.5px;line-height:1}.proof-club-stat span{font-size:.84rem;color:var(--muted);margin-top:.22rem;display:block}
+</style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 <script src="app.js" defer></script>
 </head>
@@ -108,13 +113,13 @@
 
 <section id="plataforma">
   <div class="inner">
-    <div class="label reveal">Plataforma</div>
-    <h2 class="title reveal">Inteligência operacional a funcionar em segundo plano.</h2>
-    <p class="subtitle reveal">A plataforma monitoriza estados de pagamento, decide a próxima ação e move cada sócio por fluxos de recuperação sem pedir ao dirigente para gerir cada passo.</p>
+    <div class="label reveal">Plataforma — PulseQuotas</div>
+    <h2 class="title reveal">Recuperação de quotas a funcionar em segundo plano.</h2>
+    <p class="subtitle reveal">O PulseQuotas deteta pagamentos em atraso, contacta os sócios automaticamente e escala quando necessário — sem o dirigente gerir cada passo.</p>
     <div class="cards" style="margin-top:2.5rem">
-      <article class="card accent reveal"><div class="card-icon">01</div><div class="card-title">Deteção em tempo real</div><p>O motor monitoriza ciclos de pagamento, atrasos, falhas e padrões de risco assim que os dados financeiros do clube se atualizam — sem necessidade de exportações manuais.</p></article>
-      <article class="card accent reveal"><div class="card-icon">02</div><div class="card-title">Sequências autónomas</div><p>Mensagens WhatsApp e email com tom, canal e timing escolhidos automaticamente a partir do histórico, comportamento e probabilidade de resposta de cada sócio.</p></article>
-      <article class="card accent reveal"><div class="card-icon">03</div><div class="card-title">Escalamento operacional</div><p>Quando o primeiro contacto não resolve, o sistema escala incentivos, ativa fluxos de retenção e atualiza o painel sem intervenção do dirigente.</p></article>
+      <article class="card accent reveal"><div class="card-icon">01</div><div class="card-title">Deteção em tempo real</div><p>Monitoriza pagamentos e identifica atrasos automaticamente, sem exportações manuais.</p></article>
+      <article class="card accent reveal"><div class="card-icon">02</div><div class="card-title">Contacto automático</div><p>Envia lembretes por WhatsApp ou email com tom e timing escolhidos pelo sistema para cada sócio.</p></article>
+      <article class="card accent reveal"><div class="card-icon">03</div><div class="card-title">Escalamento sem esforço</div><p>Se o primeiro contacto não resultar, o sistema escala incentivos e atualiza o painel — sem intervenção.</p></article>
     </div>
   </div>
 </section>
