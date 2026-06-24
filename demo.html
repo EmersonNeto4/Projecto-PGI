@@ -19,7 +19,6 @@
     <div class="side-section-label">Workspace</div>
     <nav class="side-nav">
       <a class="active" href="#visao">Visão Geral</a>
-      <a href="#comando">Painel Operacional</a>
       <a href="#operacoes">Monitorização & Feed</a>
       <a href="#analytics">Análise de Dados</a>
       <a href="#sistema-pipeline">Infraestrutura</a>
@@ -37,6 +36,7 @@
     </div>
     <div class="side-footer">v1.4.2 · Edge OPS</div>
   </aside>
+
   <main class="app-main">
     <div class="topbar">
       <div>
@@ -49,15 +49,16 @@
         <a class="btn btn-ghost" href="index.html">Voltar ao Site</a>
       </div>
     </div>
+    
     <div class="app-content">
-
+      <!-- Visão Geral (Engloba o Painel Operacional) -->
       <section class="hero-panel" id="visao" style="scroll-margin-top: 100px;">
         <div class="dash-live"><span class="live-dot"></span>Modo Demonstração</div>
         <h1>Recuperação autónoma de quotas em ação.</h1>
         <p>Explore esta simulação interativa e veja como o motor ClubPulse deteta atrasos, envia lembretes e escala situações sem intervenção humana.</p>
       </section>
 
-      <section class="ops-command" id="comando" style="scroll-margin-top: 100px; margin-top: 1.5rem;">
+      <section class="ops-command" style="margin-top: 0.5rem;">
         <div class="ops-command-head">
           <div>
             <div class="ops-eyebrow"><span class="pulse-ring sm"></span>Simulação do Sistema</div>
@@ -96,7 +97,8 @@
         </div>
       </section>
 
-      <div class="supporting-label" style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Acompanhamento de Sócios e Mensagens</div>
+      <!-- Monitorização & Feed -->
+      <div class="supporting-label" style="margin: 1rem 0 0.2rem 0.5rem;">Acompanhamento de Sócios e Mensagens</div>
       
       <section class="app-grid" id="operacoes" style="scroll-margin-top: 100px;">
         <div class="app-card">
@@ -131,20 +133,32 @@
         </div>
       </section>
 
-      <div class="supporting-label" style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Análise de Performance Operacional</div>
+      <!-- Análise de Dados (Enriquecida) -->
+      <div class="supporting-label" style="margin: 1rem 0 0.2rem 0.5rem;">Análise de Performance Operacional</div>
 
-      <section class="app-grid" id="analytics" style="scroll-margin-top: 100px;">
-        <div class="app-card">
-          <div class="chart-head"><div><div class="app-card-title">Tendência de recuperação (€)</div><div class="app-card-meta">Simulação Semestral</div></div></div>
-          <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+      <section id="analytics" style="scroll-margin-top: 100px;">
+        <!-- Novos KPIs para enriquecer a Análise -->
+        <div class="ops-strip" style="margin-bottom: 1.25rem;">
+          <div class="ops-stat"><div class="ops-stat-num">91%</div><div class="ops-stat-label">Taxa de sucesso WhatsApp</div></div>
+          <div class="ops-stat"><div class="ops-stat-num">2.4h</div><div class="ops-stat-label">Tempo médio de resposta</div></div>
+          <div class="ops-stat"><div class="ops-stat-num">18%</div><div class="ops-stat-label">Escalamentos mitigados</div></div>
+          <div class="ops-stat"><div class="ops-stat-num">€4.2k</div><div class="ops-stat-label">Projeção de recuperação anual</div></div>
         </div>
-        <div class="app-card">
-          <div class="chart-head"><div><div class="app-card-title">Estados de pagamento</div><div class="app-card-meta">Distribuição em percentagem</div></div></div>
-          <div class="chart-wrap"><canvas id="stateChart"></canvas></div>
+
+        <div class="app-grid">
+          <div class="app-card">
+            <div class="chart-head"><div><div class="app-card-title">Tendência de recuperação (€)</div><div class="app-card-meta">Simulação Semestral</div></div></div>
+            <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+          </div>
+          <div class="app-card">
+            <div class="chart-head"><div><div class="app-card-title">Estados de pagamento</div><div class="app-card-meta">Distribuição em percentagem</div></div></div>
+            <div class="chart-wrap"><canvas id="stateChart"></canvas></div>
+          </div>
         </div>
       </section>
 
-      <div class="supporting-label" style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Integração e Ciclo de Vida</div>
+      <!-- Infraestrutura -->
+      <div class="supporting-label" style="margin: 1rem 0 0.2rem 0.5rem;">Integração e Ciclo de Vida</div>
 
       <section class="app-grid" id="sistema-pipeline" style="scroll-margin-top: 100px;">
         <div class="app-card system-panel" id="sistema">
@@ -168,17 +182,14 @@
         </div>
       </section>
 
-      <section class="contact-ops" id="contacto-ops" style="scroll-margin-top: 100px; margin-top: 2.5rem;">
-        <div class="contact-ops-head" style="margin-bottom: 1rem;">
-          <div><div class="ops-title">Pronto para testar no seu clube?</div></div>
-        </div>
-        <div class="contact-actions" style="grid-template-columns: 1fr; max-width: 480px; margin-bottom:0;">
-          <a class="action-card" href="index.html#contacto">
-            <div class="ac-top"><span class="ac-id">DEMO</span></div>
-            <div class="ac-title">Agendar Demonstração</div>
-            <p class="ac-copy">Sessão guiada para mapear o fluxo de quotas e testar o motor autónomo.</p>
-            <div class="ac-cta">Reservar sessão <span>→</span></div>
-          </a>
+      <!-- Contacto Apelativo e Centrado -->
+      <section class="contact-ops" id="contacto-ops" style="scroll-margin-top: 100px; margin-top: 1rem; text-align: center; padding: 3rem 2rem;">
+        <div class="ops-eyebrow" style="justify-content: center; margin-bottom: 1rem;"><span class="pulse-ring sm"></span>ONBOARDING & SETUP</div>
+        <h2 class="ops-title" style="font-size: 2.2rem; margin-bottom: 1rem;">Pronto para testar no seu clube?</h2>
+        <p class="ops-sub" style="margin: 0 auto 2rem auto; font-size: 1.05rem;">Agende uma sessão guiada para mapear o fluxo atual de quotas do seu clube e veja na prática como o nosso motor autónomo pode poupar dezenas de horas mensais.</p>
+        
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a class="btn btn-amber btn-lg" href="index.html#contacto" style="box-shadow: 0 14px 34px rgba(245,166,35,.35);">Agendar Demonstração →</a>
         </div>
       </section>
 

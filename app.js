@@ -246,10 +246,12 @@ function initProdutoPage(){
 }
 
 function initScrollSpy() {
-  const sections = qsa('section[id]');
+  // O target agora corresponde aos IDs exatos que temos no HTML
+  const sections = qsa('#visao, #operacoes, #analytics, #sistema-pipeline, #contacto-ops');
   const navLinks = qsa('.side-nav a');
   if(!sections.length || !navLinks.length) return;
   
+  // Deteta quando fazemos scroll pela página
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -261,11 +263,18 @@ function initScrollSpy() {
         });
       }
     });
-  }, { rootMargin: '-120px 0px -50% 0px' });
+  }, { rootMargin: '-20% 0px -70% 0px' }); // Ajustado para ser muito mais sensível e exato
   
   sections.forEach(sec => observer.observe(sec));
+  
+  // Garante que o menu muda imediatamente quando o utilizador clica nele
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
 }
-
 document.addEventListener('DOMContentLoaded',()=>{
   initNavigation();
   initReveals();
