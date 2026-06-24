@@ -93,7 +93,9 @@ function renderAppFeed(){
   feed.innerHTML = appFeedState.slice(0,5).map((f, i) => {
     const time = nowHM(i * 2); 
     const color = f.type === 'red' ? '#E74C3C' : f.type === 'amber' ? '#F5A623' : '#27AE60';
-    return `<div class="feed-item"><div class="feed-hour">${time}</div><div class="feed-dot" style="background:${color}"></div><div class="feed-text">${f.text}</div><div class="feed-state state-${f.type}">${f.state}</div></div>`;
+    // Removi a class state-${f.type} que estava a causar o conflito do quadrado, 
+    // e adicionei style="color: ${color}" para a cor certa do texto
+    return `<div class="feed-item"><div class="feed-hour">${time}</div><div class="feed-dot" style="background:${color}"></div><div class="feed-text">${f.text}</div><div class="feed-state" style="color:${color}">${f.state}</div></div>`;
   }).join('');
 }
 
@@ -243,6 +245,27 @@ function initProdutoPage(){
   document.title='ClubPulse — '+p[0];
 }
 
+function initScrollSpy() {
+  const sections = qsa('section[id]');
+  const navLinks = qsa('.side-nav a');
+  if(!sections.length || !navLinks.length) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-120px 0px -50% 0px' });
+  
+  sections.forEach(sec => observer.observe(sec));
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
   initNavigation();
   initReveals();
@@ -252,4 +275,5 @@ document.addEventListener('DOMContentLoaded',()=>{
   initOpsTimeline();
   initDemoCharts();
   initProdutoPage();
+  initScrollSpy();
 });

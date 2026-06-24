@@ -19,11 +19,10 @@
     <div class="side-section-label">Workspace</div>
     <nav class="side-nav">
       <a class="active" href="#visao">Visão Geral</a>
-      <a href="#operacoes">Operações</a>
-      <a href="#automacao">Automação</a>
-      <a href="#analytics">Análise</a>
-      <a href="#comunicacoes">Comunicações</a>
-      <a href="#sistema">Sistema</a>
+      <a href="#comando">Painel Operacional</a>
+      <a href="#operacoes">Monitorização & Feed</a>
+      <a href="#analytics">Análise de Dados</a>
+      <a href="#sistema-pipeline">Infraestrutura</a>
       <a href="#contacto-ops">Contacto</a>
     </nav>
     <div class="side-status">
@@ -52,13 +51,13 @@
     </div>
     <div class="app-content">
 
-      <section class="hero-panel" id="visao">
+      <section class="hero-panel" id="visao" style="scroll-margin-top: 100px;">
         <div class="dash-live"><span class="live-dot"></span>Modo Demonstração</div>
         <h1>Recuperação autónoma de quotas em ação.</h1>
         <p>Explore esta simulação interativa e veja como o motor ClubPulse deteta atrasos, envia lembretes e escala situações sem intervenção humana.</p>
       </section>
 
-      <section class="ops-command" id="comando">
+      <section class="ops-command" id="comando" style="scroll-margin-top: 100px; margin-top: 1.5rem;">
         <div class="ops-command-head">
           <div>
             <div class="ops-eyebrow"><span class="pulse-ring sm"></span>Simulação do Sistema</div>
@@ -97,9 +96,9 @@
         </div>
       </section>
 
-      <!-- Fila e Comunicações Lado a Lado -->
-      <section class="app-grid" id="operacoes">
-        <!-- Fila com In-place View -->
+      <div class="supporting-label" style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Acompanhamento de Sócios e Mensagens</div>
+      
+      <section class="app-grid" id="operacoes" style="scroll-margin-top: 100px;">
         <div class="app-card">
           <div class="chart-head" id="memberListHead">
             <div>
@@ -110,14 +109,13 @@
           
           <div class="member-list" id="memberList"></div>
           
-          <!-- Detalhe do sócio (Oculto por defeito) -->
           <div id="detailView" style="display:none;">
             <div class="chart-head" style="margin-bottom:1.5rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:1rem;">
               <div>
                 <div class="app-card-title" id="detailName">Nome</div>
                 <div class="app-card-meta" id="detailMeta">Meta</div>
               </div>
-              <button class="btn btn-ghost" onclick="closeDetail()" style="padding:0.4rem 0.8rem; font-size:0.8rem;">← Voltar à lista</button>
+              <button class="btn btn-ghost-white" onclick="closeDetail()" style="padding:0.4rem 0.8rem; font-size:0.8rem;">← Voltar à lista</button>
             </div>
             <div style="margin-bottom:1.5rem;">
               <div style="font-size:0.75rem; color:#F5A623; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin-bottom:0.5rem;">Mensagem Simulada</div>
@@ -127,15 +125,15 @@
           </div>
         </div>
 
-        <!-- Comunicações -->
         <div class="app-card" id="comunicacoes">
           <div class="chart-head"><div><div class="app-card-title">Atividade de comunicações</div><div class="app-card-meta">Eventos de envio</div></div><div class="dash-live"><span class="live-dot"></span>ONLINE</div></div>
           <div class="feed-list" id="feed"></div>
         </div>
       </section>
 
-      <!-- Análise com Gráficos melhorados -->
-      <section class="app-grid" id="analytics">
+      <div class="supporting-label" style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Análise de Performance Operacional</div>
+
+      <section class="app-grid" id="analytics" style="scroll-margin-top: 100px;">
         <div class="app-card">
           <div class="chart-head"><div><div class="app-card-title">Tendência de recuperação (€)</div><div class="app-card-meta">Simulação Semestral</div></div></div>
           <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
@@ -146,8 +144,9 @@
         </div>
       </section>
 
-      <!-- Sistema e Pipeline Lado a Lado -->
-      <section class="app-grid" id="sistema-pipeline">
+      <div class="supporting-label" style="margin-top: 2.5rem; margin-bottom: 0.5rem;">Integração e Ciclo de Vida</div>
+
+      <section class="app-grid" id="sistema-pipeline" style="scroll-margin-top: 100px;">
         <div class="app-card system-panel" id="sistema">
           <div class="chart-head"><div><div class="app-card-title">Estado do sistema</div><div class="app-card-meta">Monitorização de infraestrutura</div></div></div>
           <div class="system-grid" style="grid-template-columns: 1fr; gap:0.5rem;">
@@ -169,23 +168,16 @@
         </div>
       </section>
 
-      <!-- Contacto Limpo e Direto -->
-      <section class="contact-ops" id="contacto-ops">
-        <div class="contact-ops-head">
+      <section class="contact-ops" id="contacto-ops" style="scroll-margin-top: 100px; margin-top: 2.5rem;">
+        <div class="contact-ops-head" style="margin-bottom: 1rem;">
           <div><div class="ops-title">Pronto para testar no seu clube?</div></div>
         </div>
-        <div class="contact-actions" style="grid-template-columns: repeat(2, 1fr); margin-bottom:0;">
+        <div class="contact-actions" style="grid-template-columns: 1fr; max-width: 480px; margin-bottom:0;">
           <a class="action-card" href="index.html#contacto">
             <div class="ac-top"><span class="ac-id">DEMO</span></div>
             <div class="ac-title">Agendar Demonstração</div>
             <p class="ac-copy">Sessão guiada para mapear o fluxo de quotas e testar o motor autónomo.</p>
             <div class="ac-cta">Reservar sessão <span>→</span></div>
-          </a>
-          <a class="action-card" href="mailto:partnerships@clubpulse.pt">
-            <div class="ac-top"><span class="ac-id">EMAIL</span></div>
-            <div class="ac-title">Contactar Equipa</div>
-            <p class="ac-copy">Linha direta para dúvidas, parcerias ou pedidos empresariais.</p>
-            <div class="ac-cta">Enviar mensagem <span>→</span></div>
           </a>
         </div>
       </section>
