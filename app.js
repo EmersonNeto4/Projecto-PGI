@@ -45,7 +45,7 @@ function initLandingChart(){
   const grad=ctx.createLinearGradient(0,0,0,260);
   grad.addColorStop(0,'rgba(245,166,35,.28)');
   grad.addColorStop(1,'rgba(245,166,35,0)');
-  new Chart(ctx,{type:'line',data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun'],datasets:[{data:[1200,1800,2600,4100,6200,8400],borderColor:'#F5A623',backgroundColor:grad,fill:true,tension:.42,borderWidth:3,pointRadius:4,pointBackgroundColor:'#F5A623'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(11,22,41,.96)',padding:12,displayColors:false,callbacks:{label:c=>'€'+c.parsed.y.toLocaleString('pt-PT')+' recuperados'}}},scales:{x:{grid:{color:'rgba(255,255,255,.05)'}},y:{grid:{color:'rgba(255,255,255,.05)'},ticks:{callback:v=>'€'+v/1000+'k'}}},animation:{duration:1300,easing:'easeOutQuart'}}});
+  new Chart(ctx,{type:'line',data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun'],datasets:[{data:[180,240,290,310,340,360],borderColor:'#F5A623',backgroundColor:grad,fill:true,tension:.42,borderWidth:3,pointRadius:4,pointBackgroundColor:'#F5A623'}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:4,bottom:0}},plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(11,22,41,.96)',padding:12,displayColors:false,callbacks:{label:c=>'€'+c.parsed.y.toLocaleString('pt-PT')+' recuperados'}}},scales:{x:{grid:{color:'rgba(255,255,255,.05)'}},y:{min:140,max:390,grid:{color:'rgba(255,255,255,.05)'},ticks:{callback:v=>'€'+v}}},animation:{duration:1300,easing:'easeOutQuart'}}});
 }
 
 const members=[
@@ -56,12 +56,12 @@ const members=[
   {name:'Beatriz Lima',init:'BL',state:'MONITORIZAÇÃO',type:'red',meta:'Segundo lembrete agendado automaticamente',msg:'Beatriz, tens quotas em aberto. O ClubPulse reservou um incentivo de regularização por 30 dias.'}
 ];
 
-const appFeed=[
-  'Lembrete WhatsApp enviado',
-  'Pagamento recuperado',
-  'Fluxo de escalamento iniciado',
-  'Risco de retenção detetado',
-  'Entrega de mensagem confirmada'
+let appFeedState = [
+  {text: 'Lembrete WhatsApp enviado', type: 'amber', state: 'PROCESSAMENTO'},
+  {text: 'Pagamento recuperado', type: 'green', state: 'AUTOMÁTICO'},
+  {text: 'Fluxo de escalamento iniciado', type: 'red', state: 'ESCALAMENTO'},
+  {text: 'Risco de retenção detetado', type: 'red', state: 'MONITORIZAÇÃO'},
+  {text: 'Entrega de mensagem confirmada', type: 'green', state: 'AUTOMÁTICO'}
 ];
 
 function stateBadge(type,state){return `<span class="badge state-${type}">${state}</span>`}
@@ -72,28 +72,65 @@ function initDemoDashboard(){
   if(!list||!feed) return;
   list.innerHTML=members.map((m,i)=>`<button class="member" onclick="openDetail(${i})"><div class="avatar">${m.init}</div><div><div class="member-name">${m.name}</div><div class="member-meta">${m.meta}</div></div>${stateBadge(m.type,m.state)}</button>`).join('');
   renderAppFeed();
-  setInterval(()=>{appFeed.unshift(['Motor analisou 25 sócios','Probabilidade de regularização atualizada','Webhook de pagamento recebido','Escalamento automático reavaliado'][Math.floor(Math.random()*4)]);renderAppFeed();},7000);
+  
+  // Novo Simulador de Feed
+  setInterval(()=>{
+    if(!qs('#feed')) return;
+    const newEvents = [
+      {text: 'Motor analisou 25 sócios', type: 'green', state: 'SISTEMA'},
+      {text: 'Probabilidade de regularização atualizada', type: 'amber', state: 'PROCESSAMENTO'},
+      {text: 'Webhook de pagamento recebido', type: 'green', state: 'AUTOMÁTICO'},
+      {text: 'Escalamento reavaliado', type: 'red', state: 'ESCALAMENTO'}
+    ];
+    appFeedState.unshift(newEvents[Math.floor(Math.random() * newEvents.length)]);
+    renderAppFeed();
+  }, 7000);
 }
 
 function renderAppFeed(){
-  const feed=qs('#feed');
+  const feed = qs('#feed');
   if(!feed) return;
-  const times=['14:02','14:04','14:07','14:09','14:11'];
-  feed.innerHTML=appFeed.slice(0,5).map((f,i)=>`<div class="feed-item"><div class="feed-hour">${times[i]||'agora'}</div><div class="feed-dot" style="background:${i%3===2?'#E74C3C':i%3===1?'#F5A623':'#27AE60'}"></div><div class="feed-text">${f}</div><div class="feed-state">${i%3===2?'ESCALAMENTO':i%3===1?'PROCESSAMENTO':'AUTOMÁTICO'}</div></div>`).join('');
+  feed.innerHTML = appFeedState.slice(0,5).map((f, i) => {
+    const time = nowHM(i * 2); 
+    const color = f.type === 'red' ? '#E74C3C' : f.type === 'amber' ? '#F5A623' : '#27AE60';
+    // Removi a class state-${f.type} que estava a causar o conflito do quadrado, 
+    // e adicionei style="color: ${color}" para a cor certa do texto
+    return `<div class="feed-item"><div class="feed-hour">${time}</div><div class="feed-dot" style="background:${color}"></div><div class="feed-text">${f.text}</div><div class="feed-state" style="color:${color}">${f.state}</div></div>`;
+  }).join('');
 }
 
-window.openDetail=function(i){
-  const detail=qs('#detail');
-  const m=members[i];
-  if(!detail||!m) return;
-  detail.classList.add('active');
-  detail.scrollIntoView({behavior:'smooth',block:'start'});
-  qs('#detailName').textContent=m.name;
-  qs('#detailMeta').textContent=m.meta;
-  qs('#phoneMsg').textContent=m.msg;
-  qs('#timeline').innerHTML=['Pagamento em atraso detetado','Mensagem de recuperação gerada','WhatsApp/email entregue','Estado em monitorização ativa'].map((t,idx)=>`<div class="timeline-item"><div class="timeline-icon">${idx+1}</div><div><div class="member-name">${t}</div><div class="member-meta">${idx===3?'O sistema escala automaticamente se não houver resposta':'Executado automaticamente pelo ClubPulse'}</div></div></div>`).join('');
+window.openDetail = function(i) {
+  const detail = qs('#detailView');
+  const list = qs('#memberList');
+  const head = qs('#memberListHead');
+  const m = members[i];
+  
+  if(!detail || !list || !m) return;
+  
+  list.style.display = 'none';
+  if(head) head.style.display = 'none';
+  detail.style.display = 'block';
+  
+  qs('#detailName').textContent = m.name;
+  qs('#detailMeta').textContent = m.meta;
+  qs('#phoneMsg').textContent = m.msg;
+  qs('#timeline').innerHTML = [
+    'Pagamento em atraso detetado',
+    'Mensagem de recuperação gerada',
+    'Contacto executado',
+    'Estado atualizado no sistema'
+  ].map((t, idx) => `<div class="timeline-item"><div class="timeline-icon">${idx+1}</div><div><div class="member-name">${t}</div><div class="member-meta">Ação automática gerida pelo motor</div></div></div>`).join('');
 }
-window.closeDetail=function(){const d=qs('#detail');if(d)d.classList.remove('active');}
+
+window.closeDetail = function() {
+  const detail = qs('#detailView');
+  const list = qs('#memberList');
+  const head = qs('#memberListHead');
+  
+  if(detail) detail.style.display = 'none';
+  if(list) list.style.display = 'grid'; 
+  if(head) head.style.display = 'flex';
+}
 
 const opsCatalog=[
   {text:'Lembrete WhatsApp enviado a Maria Santos',tag:'Comunicação',tagClass:'amber',dot:'amber',source:'WPP-API'},
@@ -129,17 +166,63 @@ function initOpsTimeline(){
 
 function initDemoCharts(){
   if(!window.Chart) return;
-  const trend=qs('#trendChart');
-  const states=qs('#stateChart');
-  if(!trend||!states) return;
-  Chart.defaults.font.family='Inter';
-  Chart.defaults.color='rgba(255,255,255,.52)';
-  const ctx=trend.getContext('2d');
-  const grad=ctx.createLinearGradient(0,0,0,260);
+  const trend = qs('#trendChart');
+  const states = qs('#stateChart');
+  if(!trend || !states) return;
+  
+  Chart.defaults.font.family = 'Inter';
+  Chart.defaults.color = 'rgba(255,255,255,.52)';
+  
+  const ctx = trend.getContext('2d');
+  const grad = ctx.createLinearGradient(0,0,0,260);
   grad.addColorStop(0,'rgba(245,166,35,.28)');
   grad.addColorStop(1,'rgba(245,166,35,0)');
-  new Chart(ctx,{type:'line',data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun'],datasets:[{data:[1200,1800,2600,4100,6200,8400],borderColor:'#F5A623',backgroundColor:grad,fill:true,tension:.42,borderWidth:3,pointRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,.05)'}},y:{grid:{color:'rgba(255,255,255,.05)'},ticks:{callback:v=>'€'+v/1000+'k'}}},animation:{duration:1300,easing:'easeOutQuart'}}});
-  new Chart(states,{type:'doughnut',data:{labels:['Recuperados','Em processamento','Em escalamento'],datasets:[{data:[18,4,3],backgroundColor:['#27AE60','#F5A623','#E74C3C'],borderColor:'#101e35',borderWidth:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{position:'bottom',labels:{boxWidth:10,usePointStyle:true}}},animation:{duration:1200}}});
+  
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jan','Fev','Mar','Abr','Mai','Jun'],
+      datasets: [{
+        data: [180, 240, 290, 310, 340, 360], 
+        borderColor: '#F5A623', 
+        backgroundColor: grad, 
+        fill: true, 
+        tension: .42, 
+        borderWidth: 3, 
+        pointRadius: 4, 
+        pointBackgroundColor: '#F5A623'
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {legend: {display: false}},
+      scales: {
+        x: {grid: {color: 'rgba(255,255,255,.05)'}},
+        y: {grid: {color: 'rgba(255,255,255,.05)'}, ticks: {callback: v => '€'+v}}
+      },
+      animation: {duration: 1300, easing: 'easeOutQuart'}
+    }
+  });
+  
+  new Chart(states, {
+    type: 'doughnut',
+    data: {
+      labels: ['Recuperados (72%)', 'Processamento (16%)', 'Escalamento (12%)'],
+      datasets: [{
+        data: [72, 16, 12],
+        backgroundColor: ['#27AE60','#F5A623','#E74C3C'],
+        borderColor: '#101e35',
+        borderWidth: 5
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '68%',
+      plugins: {
+        legend: {position: 'bottom', labels: {boxWidth: 10, usePointStyle: true}}
+      },
+      animation: {duration: 1200}
+    }
+  });
 }
 
 const produtos={
@@ -162,6 +245,36 @@ function initProdutoPage(){
   document.title='ClubPulse — '+p[0];
 }
 
+function initScrollSpy() {
+  // O target agora corresponde aos IDs exatos que temos no HTML
+  const sections = qsa('#visao, #operacoes, #analytics, #sistema-pipeline, #contacto-ops');
+  const navLinks = qsa('.side-nav a');
+  if(!sections.length || !navLinks.length) return;
+  
+  // Deteta quando fazemos scroll pela página
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' }); // Ajustado para ser muito mais sensível e exato
+  
+  sections.forEach(sec => observer.observe(sec));
+  
+  // Garante que o menu muda imediatamente quando o utilizador clica nele
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+}
 document.addEventListener('DOMContentLoaded',()=>{
   initNavigation();
   initReveals();
@@ -171,4 +284,5 @@ document.addEventListener('DOMContentLoaded',()=>{
   initOpsTimeline();
   initDemoCharts();
   initProdutoPage();
+  initScrollSpy();
 });
